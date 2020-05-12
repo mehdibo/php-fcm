@@ -1,0 +1,20 @@
+{
+    "name": "mehdibo/php-fcm",
+    "description": "A PHP library to send Push notifications using FCM (Firebase Cloud Messaging)",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Mehdi Bounya",
+            "email": "mehdi.bounya@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Mehdibo\\Fcm" : "src/"
+        }
+    },
+    "require": {
+        "php": "^7.4"
+    }
+}
