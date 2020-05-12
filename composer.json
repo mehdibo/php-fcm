@@ -11,10 +11,11 @@
     ],
     "autoload": {
         "psr-4": {
-            "Mehdibo\\Fcm" : "src/"
+            "Mehdibo\\Fcm\\" : "src/"
         }
     },
     "require": {
-        "php": "^7.4"
+        "php": "^7.4",
+        "symfony/http-client": "^5.0"
     }
 }
