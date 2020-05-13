@@ -68,13 +68,43 @@ Add the following vars to your `.env` file:
 ```dotenv
 FCM_SERVICE_ACCOUNT= # The path to your service account json
 FCM_PROJECT_ID= # The project ID
+FCM_SERVER_KEY= # Used for the DeviceInfoFetcher
 ```
 
-Add the factory to your `services.yaml` file:
+Add services to your `services.yaml` file:
 ```yaml
 Mehdibo\Fcm\FcmNotifier:
         factory: ['Mehdibo\Fcm\NotifierFactory', 'create']
         arguments:
             $serviceAccountCredentials: '%env(resolve:FCM_SERVICE_ACCOUNT)%'
             $projectId: '%env(FCM_PROJECT_ID)%'
+
+GuzzleHttp\ClientInterface:
+        class: GuzzleHttp\Client
+
+Mehdibo\Fcm\Device\DeviceInfoFetcher:
+    arguments:
+        $serverKey: '%env(FCM_SERVER_KEY)%'
+```
+
+## Getting device info
+
+Fetching the device info uses the Legacy API, that uses a *Server Key*
+
+Get the server key by:
+
+- Go to your project dashboard
+- On the top left, under the Firebase logo, Click on the cog icon and select *Project settings*
+- Go to the *Cloud Messaging* tab
+- You will find the *Server Key* there
+
+```php
+<?php
+use GuzzleHttp\Client;
+use Mehdibo\Fcm\Device\DeviceInfoFetcher;
+
+$client = new Client();
+$deviceInfoFetcher = new DeviceInfoFetcher('serverKey', $client);
+
+$deviceInfo = $deviceInfoFetcher->fetchInfo('registrationToken');
 ```
