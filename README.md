@@ -70,7 +70,7 @@ FCM_PROJECT_ID= # The project ID
 
 Add the factory to your `services.yaml` file:
 ```yaml
-Mehdibo\Fcm\Notifier:
+Mehdibo\Fcm\FcmNotifier:
         factory: ['Mehdibo\Fcm\NotifierFactory', 'create']
         arguments:
             $serviceAccountCredentials: '%env(resolve:FCM_SERVICE_ACCOUNT)%'

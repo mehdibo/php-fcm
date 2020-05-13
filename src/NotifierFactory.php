@@ -12,15 +12,15 @@ class NotifierFactory
     /**
      * @param string $serviceAccountCredentials
      * @param string $projectId
-     * @return Notifier|null
+     * @return FcmNotifier|null
      * @throws Exception\ServiceAccountFileNotFound
      * @throws Exception\ServiceAccountFileNotValid
      */
-    public static function create(string $serviceAccountCredentials, string $projectId):?Notifier
+    public static function create(string $serviceAccountCredentials, string $projectId):?FcmNotifier
     {
         $googleAuth = new GoogleAuth($serviceAccountCredentials, new \Google_Client());
         $httpClient = $googleAuth->getAuthorizedClient();
-        return new Notifier($projectId, $httpClient);
+        return new FcmNotifier($projectId, $httpClient);
     }
 
 }

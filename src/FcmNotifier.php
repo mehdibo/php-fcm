@@ -9,7 +9,7 @@ use Mehdibo\Fcm\Exception\ReceiverNotFound;
 use Mehdibo\Fcm\Notification\Notification;
 use Mehdibo\Fcm\Receiver\Receiver;
 
-class Notifier
+class FcmNotifier
 {
     private const API_ENDPOINT = 'https://fcm.googleapis.com/v1';
 
