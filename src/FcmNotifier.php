@@ -33,16 +33,16 @@ class FcmNotifier
      * @throws GuzzleException
      * @throws ReceiverNotFound|InvalidReceiver
      */
-    private function sendRequest(array $data):void
+    private function sendRequest(array $data):string
     {
         $response = $this->client->request('POST', $this->getUrl(),
             [
                 'json' => $data,
             ]
         );
-        if ($response->getStatusCode() === 200)
-            return;
         $body = \json_decode($response->getBody()->getContents());
+        if ($response->getStatusCode() === 200)
+            return $body->name;
         $error = $body->error;
         if ($error->status === 'NOT_FOUND')
             throw new ReceiverNotFound('The receiver you specified is not found, more details: '.
@@ -55,9 +55,10 @@ class FcmNotifier
     /**
      * @param Notification $notification
      * @param Receiver $receiver
+     * @return string Message ID
      * @throws GuzzleException
      */
-    public function send(Notification $notification, Receiver $receiver):void
+    public function send(Notification $notification, Receiver $receiver):string
     {
         $message = [
             $receiver->getTargetName() => $receiver->getTargetValue(),
@@ -65,7 +66,7 @@ class FcmNotifier
         ];
         if ($notification->getData() !== NULL)
             $message['data'] = $notification->getData();
-        $this->sendRequest(['message' => $message]);
+        return $this->sendRequest(['message' => $message]);
     }
 
 }
