@@ -2,6 +2,11 @@
 
 namespace Mehdibo\Fcm\Notification;
 
+/**
+ * Class BasicNotification
+ * @package Mehdibo\Fcm\Notification
+ * @see https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#notification
+ */
 class BasicNotification implements Notification
 {
 
