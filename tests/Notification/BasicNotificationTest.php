@@ -45,13 +45,13 @@ class BasicNotificationTest extends TestCase
         $this->assertEquals(self::DATA['data'], $this->notif->getData());
     }
 
-    public function testGetNotificationBody()
+    public function testGetNotificationBody():void
     {
         $expectedBody = self::EXPECTED_BODY;
         $this->assertEquals($expectedBody, $this->notif->getNotificationBody());
     }
 
-    public function testSetImageUrl()
+    public function testSetImageUrl():void
     {
         $newValue = 'this_is_the_new_value';
         $expectedBody = self::EXPECTED_BODY;
@@ -61,12 +61,12 @@ class BasicNotificationTest extends TestCase
         $this->assertEquals($expectedBody, $this->notif->getNotificationBody());
     }
 
-    public function testGetNotificationName()
+    public function testGetNotificationName():void
     {
         $this->assertEquals(self::NOTIF_NAME, $this->notif->getNotificationName());
     }
 
-    public function testSetTitle()
+    public function testSetTitle():void
     {
         $newValue = 'this_is_the_new_value';
         $expectedBody = self::EXPECTED_BODY;
@@ -76,14 +76,14 @@ class BasicNotificationTest extends TestCase
         $this->assertEquals($expectedBody, $this->notif->getNotificationBody());
     }
 
-    public function testSetData()
+    public function testSetData():void
     {
         $newValue = ['new_key', 'this_is_the_new_value'];
         $this->notif->setData($newValue);
         $this->assertEquals($newValue, $this->notif->getData());
     }
 
-    public function testSetBody()
+    public function testSetBody():void
     {
         $newValue = 'this_is_the_new_value';
         $expectedBody = self::EXPECTED_BODY;
