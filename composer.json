@@ -23,5 +23,9 @@
     "require-dev": {
         "phpstan/phpstan": "^0.12.25",
         "phpunit/phpunit": "^9.1"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --testdox",
+        "analyse-code": "vendor/bin/phpstan analyse -c phpstan.neon --no-progress -n"
     }
 }
