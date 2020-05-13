@@ -19,6 +19,7 @@
         "google/apiclient": "^2.4"
     },
     "require-dev": {
-        "phpstan/phpstan": "^0.12.25"
+        "phpstan/phpstan": "^0.12.25",
+        "phpunit/phpunit": "^9.1"
     }
 }
