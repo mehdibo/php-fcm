@@ -1,4 +1,4 @@
-# php-fcm
+# php-fcm ![PHP Tests](https://github.com/mehdibo/php-fcm/workflows/PHP%20Tests/badge.svg?branch=develop) [![Latest Stable Version](https://poser.pugx.org/mehdibo/php-fcm/v/stable?format=flat-square)](https://packagist.org/packages/mehdibo/php-fcm) [![Total Downloads](https://poser.pugx.org/mehdibo/php-fcm/downloads?format=flat-square)](https://packagist.org/packages/mehdibo/php-fcm) [![GitHub license](https://img.shields.io/github/license/mehdibo/php-fcm?style=flat-square)](https://github.com/mehdibo/php-fcm/blob/develop/LICENSE) [![GitHub issues](https://img.shields.io/github/issues/mehdibo/php-fcm?style=flat-square)](https://github.com/mehdibo/php-fcm/issues) [![GitHub forks](https://img.shields.io/github/forks/mehdibo/php-fcm?style=flat-square)](https://github.com/mehdibo/php-fcm/network) [![GitHub stars](https://img.shields.io/github/stars/mehdibo/php-fcm)](https://github.com/mehdibo/php-fcm/stargazers)
 A PHP library to send Push notifications using FCM (Firebase Cloud Messaging)
 
 ## Setup
