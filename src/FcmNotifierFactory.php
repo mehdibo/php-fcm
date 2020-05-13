@@ -6,7 +6,7 @@ namespace Mehdibo\Fcm;
 
 use Mehdibo\Fcm\Auth\GoogleAuth;
 
-class NotifierFactory
+class FcmNotifierFactory
 {
 
     /**

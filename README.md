@@ -36,14 +36,14 @@ That's it you can start using it like this:
 ```php
 <?php
 use Mehdibo\Fcm\Notification\BasicNotification;
-use Mehdibo\Fcm\NotifierFactory;
+use Mehdibo\Fcm\FcmNotifierFactory;
 use Mehdibo\Fcm\Receiver\Device;
 
 require "vendor/autoload.php";
 $serviceAccountCredentials = 'The path to the service account JSON file';
 $projectId = 'The project ID you got from the dashboard';
 
-$notifier = NotifierFactory::create($serviceAccountCredentials, $projectId);
+$notifier = FcmNotifierFactory::create($serviceAccountCredentials, $projectId);
 
 $notification = new BasicNotification('This is the title', 'Body goes here');
 $receiver = new Device('the token you receive from the user');

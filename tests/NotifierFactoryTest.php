@@ -6,7 +6,7 @@ namespace Mehdibo\Fcm\Tests;
 
 use Mehdibo\Fcm\Exception\ServiceAccountFileNotFound;
 use Mehdibo\Fcm\FcmNotifier;
-use Mehdibo\Fcm\NotifierFactory;
+use Mehdibo\Fcm\FcmNotifierFactory;
 use PHPUnit\Framework\TestCase;
 
 class NotifierFactoryTest extends TestCase
@@ -18,14 +18,14 @@ class NotifierFactoryTest extends TestCase
 
     public function testCreateNotifier():void
     {
-        $notifier = NotifierFactory::create($this->serviceAccountPath, $this->projectId);
+        $notifier = FcmNotifierFactory::create($this->serviceAccountPath, $this->projectId);
         $this->assertInstanceOf(FcmNotifier::class, $notifier);
     }
 
     public function testCreateNotifierWithNonExistingFile():void
     {
         $this->expectException(ServiceAccountFileNotFound::class);
-        NotifierFactory::create('./doesnt_exist', $this->projectId);
+        FcmNotifierFactory::create('./doesnt_exist', $this->projectId);
     }
 
 }
