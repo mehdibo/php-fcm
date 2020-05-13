@@ -1,6 +1,7 @@
 {
     "name": "mehdibo/php-fcm",
     "description": "A PHP library to send Push notifications using FCM (Firebase Cloud Messaging)",
+    "homepage": "https://github.com/mehdibo/php-fcm",
     "license": "MIT",
     "type": "library",
     "authors": [
