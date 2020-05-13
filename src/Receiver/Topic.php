@@ -19,7 +19,7 @@ class Topic implements Receiver
      * Topic constructor.
      * @param string $topic Without the /topic/prefix
      */
-    private function __construct(string $topic)
+    public function __construct(string $topic)
     {
         $this->topic = $topic;
     }
