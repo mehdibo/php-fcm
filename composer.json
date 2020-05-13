@@ -11,7 +11,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "Mehdibo\\Fcm\\" : "src/"
+            "Mehdibo\\Fcm\\" : "src/",
+            "Mehdibo\\Fcm\\Tests\\" : "tests/"
         }
     },
     "require": {
