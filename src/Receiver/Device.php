@@ -3,6 +3,11 @@
 namespace Mehdibo\Fcm\Receiver;
 
 
+/**
+ * Registration token to send a message to.
+ * @package Mehdibo\Fcm\Receiver
+ * @see https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#resource:-message
+ */
 class Device implements Receiver
 {
     private string $token;

@@ -3,6 +3,11 @@
 namespace Mehdibo\Fcm\Receiver;
 
 
+/**
+ * Condition to send a message
+ * @package Mehdibo\Fcm\Receiver
+ * @see https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#resource:-message
+ */
 class Condition implements Receiver
 {
     private string $condition;
