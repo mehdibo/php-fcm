@@ -37,7 +37,6 @@ class Notifier
                 'json' => $data,
             ]
         );
-        var_dump($data);
         if ($response->getStatusCode() === 200)
             return;
         $body = $response->getBody()->getContents();
