@@ -4,6 +4,8 @@ namespace Mehdibo\Fcm;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
+use Mehdibo\Fcm\Exception\InvalidReceiver;
+use Mehdibo\Fcm\Exception\ReceiverNotFound;
 use Mehdibo\Fcm\Notification\Notification;
 use Mehdibo\Fcm\Receiver\Receiver;
 
@@ -29,6 +31,7 @@ class Notifier
     /**
      * @param mixed[] $data
      * @throws GuzzleException
+     * @throws ReceiverNotFound|InvalidReceiver
      */
     private function sendRequest(array $data):void
     {
@@ -39,8 +42,14 @@ class Notifier
         );
         if ($response->getStatusCode() === 200)
             return;
-        $body = $response->getBody()->getContents();
-        echo $body;
+        $body = \json_decode($response->getBody()->getContents());
+        $error = $body->error;
+        if ($error->status === 'NOT_FOUND')
+            throw new ReceiverNotFound('The receiver you specified is not found, more details: '.
+                                       "message: '".$error->message."' errorCode:'".$error->details[0]->errorCode."'"
+            );
+        if ($error->status === 'INVALID_ARGUMENT')
+            throw new InvalidReceiver($error->message);
     }
 
     /**
