@@ -50,3 +50,29 @@ $receiver = new Device('the token you receive from the user');
 
 $notifier->send($notification, $receiver);
 ```
+
+## Using it with symfony
+To use this library with Symfony, I recommend the following approach:
+
+Add the library to your project using
+```sh
+composer require mehdibo/php-fcm
+```
+
+If you are using Symfony flex you will be prompted to execute a recipe.
+*Choose No*
+
+Add the following vars to your `.env` file:
+```dotenv
+FCM_SERVICE_ACCOUNT= # The path to your service account json
+FCM_PROJECT_ID= # The project ID
+```
+
+Add the factory to your `services.yaml` file:
+```yaml
+Mehdibo\Fcm\Notifier:
+        factory: ['Mehdibo\Fcm\NotifierFactory', 'create']
+        arguments:
+            $serviceAccountCredentials: '%env(resolve:FCM_SERVICE_ACCOUNT)%'
+            $projectId: '%env(FCM_PROJECT_ID)%'
+```
