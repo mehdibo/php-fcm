@@ -34,6 +34,7 @@ composer require mehdibo/php-fcm
 That's it you can start using it like this:
 
 ```php
+<?php
 use Mehdibo\Fcm\Notification\BasicNotification;
 use Mehdibo\Fcm\NotifierFactory;
 use Mehdibo\Fcm\Receiver\Device;
