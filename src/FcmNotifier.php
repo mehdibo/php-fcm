@@ -50,6 +50,7 @@ class FcmNotifier
             );
         if ($error->status === 'INVALID_ARGUMENT')
             throw new InvalidReceiver($error->message);
+        return '';
     }
 
     /**
