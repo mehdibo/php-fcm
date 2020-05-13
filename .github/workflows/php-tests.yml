@@ -1,0 +1,25 @@
+name: PHP Tests
+
+on:
+  push:
+    branches: [ master, develop ]
+  pull_request:
+    branches: [ master, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate
+
+    - name: Install dependencies
+      run: composer install --no-progress --no-suggest --no-interaction
+    
+    - name: Run test suite
+      run: composer run-script test
+    
+    - name: Analyse code
+      run: composer run-script analyse-code
