@@ -79,7 +79,7 @@ class BasicNotification implements Notification
 
     public function getData(): ?array
     {
-        return NULL;
+        return $this->data;
     }
 
     public function getNotificationName(): string
