@@ -11,6 +11,10 @@ class DeviceInfo
     private ?string $authorizedEntity;
     private ?string $platform;
     private ?string $appSigner;
+
+    /**
+     * @var mixed[]|null
+     */
     private ?array $rel;
 
     /**
@@ -19,7 +23,7 @@ class DeviceInfo
      * @param string|null $authorizedEntity
      * @param string|null $platform
      * @param string|null $appSigner
-     * @param array|null $rel
+     * @param mixed[]|null $rel
      */
     public function __construct(
         ?string $application = NULL,
@@ -104,7 +108,7 @@ class DeviceInfo
     }
 
     /**
-     * @return array|null
+     * @return mixed[]|null
      */
     public function getRel(): ?array
     {
@@ -112,7 +116,7 @@ class DeviceInfo
     }
 
     /**
-     * @param array|null $rel
+     * @param mixed[]|null $rel
      */
     public function setRel(?array $rel): self
     {
